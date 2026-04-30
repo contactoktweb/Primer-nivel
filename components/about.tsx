@@ -46,7 +46,7 @@ const whyUs = [
 
 export function About() {
   return (
-    <section id="nosotros" className="bg-black py-24">
+    <section id="nosotros" className="bg-zinc-900 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Main Grid: Image + Content */}
@@ -79,34 +79,34 @@ export function About() {
             <StatusBadge className="mb-6" code="ABT-02">
               Sobre Nosotros
             </StatusBadge>
-            <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-md">
               Líderes en Diseño y Montaje de{" "}
               <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
                 Stands para Ferias y Eventos
               </span>
             </h2>
 
-            <p className="mb-4 text-lg leading-relaxed text-zinc-400">
+            <p className="mb-4 text-lg leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
               En <span className="font-semibold text-white">PRIMER NIVEL</span> somos especialistas en transformar espacios en experiencias comerciales memorables. Con más de una década de trayectoria en el mercado colombiano, nos hemos consolidado como referentes en el diseño, producción y montaje de stands para ferias industriales, eventos corporativos y activaciones de marca.
             </p>
-            <p className="mb-8 leading-relaxed text-zinc-400">
+            <p className="mb-8 leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
               Nuestro equipo interdisciplinario de diseñadores, arquitectos e ingenieros combina creatividad, técnica y pasión para entregar proyectos que superan las expectativas de cada cliente, generando el máximo impacto visual y retorno de inversión en cada evento.
             </p>
 
-            {/* Mission & Vision */}
-            <div className="mb-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-white/[0.03] bg-zinc-900/30 p-5">
-                <h3 className="mb-2 flex items-center gap-2 font-bold text-white">
-                  <Icon icon="solar:flag-bold" className="h-5 w-5 text-zinc-500" />
+            {/* Mission & Vision - Neumorphic Cards */}
+            <div className="mb-8 grid gap-6 sm:grid-cols-2">
+              <div className="rounded-2xl bg-zinc-900 p-6 shadow-[-6px_-6px_12px_rgba(255,255,255,0.03),6px_6px_12px_rgba(0,0,0,0.5)]">
+                <h3 className="mb-3 flex items-center gap-2 font-bold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
+                  <Icon icon="solar:flag-bold" className="h-5 w-5 text-red-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" />
                   Nuestra Misión
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-400">
                   Crear stands y espacios comerciales de alto impacto que potencien la presencia de marca de nuestros clientes en ferias, congresos y eventos empresariales a nivel nacional e internacional.
                 </p>
               </div>
-              <div className="rounded-xl border border-white/[0.03] bg-zinc-900/30 p-5">
-                <h3 className="mb-2 flex items-center gap-2 font-bold text-white">
-                  <Icon icon="solar:eye-bold" className="h-5 w-5 text-zinc-500" />
+              <div className="rounded-2xl bg-zinc-900 p-6 shadow-[-6px_-6px_12px_rgba(255,255,255,0.03),6px_6px_12px_rgba(0,0,0,0.5)]">
+                <h3 className="mb-3 flex items-center gap-2 font-bold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
+                  <Icon icon="solar:eye-bold" className="h-5 w-5 text-red-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" />
                   Nuestra Visión
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-400">
@@ -115,16 +115,16 @@ export function About() {
               </div>
             </div>
 
-            {/* Values */}
-            <div className="grid gap-4 sm:grid-cols-3">
+            {/* Values - Neumorphic Pressed Cards */}
+            <div className="grid gap-6 sm:grid-cols-3">
               {values.map((value) => (
                 <div
                   key={value.title}
-                  className="rounded-lg border border-white/[0.03] bg-zinc-900/20 p-4 transition-colors duration-300 hover:border-red-600/30"
+                  className="rounded-2xl bg-zinc-900 p-5 shadow-[-4px_-4px_8px_rgba(255,255,255,0.03),4px_4px_8px_rgba(0,0,0,0.5)] transition-all duration-300 hover:shadow-[inset_-4px_-4px_8px_rgba(255,255,255,0.03),inset_4px_4px_8px_rgba(0,0,0,0.5)]"
                 >
-                  <Icon icon={value.icon} className="mb-3 h-8 w-8 text-red-600" />
-                  <h3 className="mb-1 font-semibold text-white">{value.title}</h3>
-                  <p className="text-sm text-zinc-500">{value.description}</p>
+                  <Icon icon={value.icon} className="mb-3 h-8 w-8 text-red-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" />
+                  <h3 className="mb-2 font-semibold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">{value.title}</h3>
+                  <p className="text-sm text-zinc-400">{value.description}</p>
                 </div>
               ))}
             </div>
@@ -146,18 +146,40 @@ export function About() {
               Nos diferenciamos por nuestro compromiso total con la calidad y el cumplimiento en cada etapa del proyecto.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {whyUs.map((item) => (
-              <div
-                key={item.title}
-                className="group rounded-xl border border-white/[0.03] bg-zinc-900/20 p-6 transition-all duration-300 hover:border-red-600/30 hover:bg-zinc-900/40"
-              >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-red-600/10 transition-colors duration-300 group-hover:bg-red-600/20">
-                  <Icon icon={item.icon} className="h-6 w-6 text-red-600" />
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 py-8">
+            {whyUs.map((item, index) => (
+              <div key={item.title} className="h-full">
+                <div
+                  className="group relative h-full"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    // Pure orthographic isometric tilt facing right (no perspective distortion)
+                    transform: 'rotateX(15deg) rotateY(25deg)',
+                  }}
+                >
+                {/* Isometric Depth/Shadow layer */}
+                <div 
+                  className="absolute inset-0 rounded-xl bg-red-600/10 border border-red-600/30 transition-transform duration-500 group-hover:bg-red-600/20"
+                  style={{
+                    transform: 'translateZ(-30px) translate(-15px, 15px)',
+                  }}
+                />
+                
+                {/* Main Front Face */}
+                <div 
+                  className="relative h-full rounded-xl border border-white/[0.08] bg-zinc-900 p-6 backdrop-blur-md transition-all duration-500 group-hover:-translate-y-2 group-hover:-translate-x-2 group-hover:bg-zinc-800"
+                  style={{
+                    transform: 'translateZ(0)',
+                  }}
+                >
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-red-600/10 shadow-[inset_0_0_10px_rgba(220,38,38,0.1)]">
+                    <Icon icon={item.icon} className="h-6 w-6 text-red-600" />
+                  </div>
+                  <h3 className="mb-2 font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-zinc-500">{item.description}</p>
                 </div>
-                <h3 className="mb-2 font-bold text-white">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-zinc-500">{item.description}</p>
               </div>
+            </div>
             ))}
           </div>
         </div>

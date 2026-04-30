@@ -49,7 +49,7 @@ const projects = [
 
 export function Portfolio() {
   return (
-    <section id="portafolio" className="bg-zinc-950 py-24">
+    <section id="portafolio" className="bg-zinc-900 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
           <StatusBadge className="mb-6" code="PRT-04">
@@ -66,16 +66,16 @@ export function Portfolio() {
           </p>
         </div>
 
-        {/* Contextual SEO Article */}
-        <article className="mb-16 grid gap-8 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 lg:grid-cols-3">
+        {/* Contextual SEO Article - Neumorphic */}
+        <article className="mb-16 grid gap-8 rounded-2xl bg-zinc-900 p-8 lg:grid-cols-3 shadow-[-6px_-6px_12px_rgba(255,255,255,0.03),6px_6px_12px_rgba(0,0,0,0.5)]">
           <div className="lg:col-span-2">
-            <h3 className="mb-3 text-xl font-bold text-white">
+            <h3 className="mb-3 text-xl font-bold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
               Diseño Estratégico que Maximiza el Impacto de tu Marca
             </h3>
-            <p className="mb-4 leading-relaxed text-zinc-400">
+            <p className="mb-4 leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
               Cada stand que diseñamos es el resultado de un análisis profundo de los objetivos comerciales del cliente, el perfil del público objetivo y las características del evento. No creamos simples estructuras; construimos experiencias inmersivas que generan conexiones reales entre las marcas y sus clientes potenciales.
             </p>
-            <p className="leading-relaxed text-zinc-500">
+            <p className="leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
               Nuestros proyectos van desde stands compactos para startups hasta instalaciones de gran formato para multinacionales. En todos los casos, la premisa es la misma: calidad de primer nivel, ejecución impecable y un diseño que te haga destacar por encima de la competencia.
             </p>
           </div>
@@ -86,8 +86,8 @@ export function Portfolio() {
               { icon: "solar:tag-bold", label: "Lanzamientos de Producto" },
               { icon: "solar:health-bold", label: "Sectores: Salud, Auto, Tecnología" },
             ].map((item) => (
-              <div key={item.label} className="flex items-center gap-3 text-sm text-zinc-300">
-                <Icon icon={item.icon} className="h-5 w-5 flex-shrink-0 text-red-600" />
+              <div key={item.label} className="flex items-center gap-3 text-sm text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
+                <Icon icon={item.icon} className="h-5 w-5 flex-shrink-0 text-red-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" />
                 {item.label}
               </div>
             ))}
@@ -175,7 +175,7 @@ export function Portfolio() {
                   </ul>
 
                   <div>
-                    <button className="group relative inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-red-600/50 hover:bg-zinc-800">
+                    <button className="group relative inline-flex items-center gap-2 border border-zinc-800 bg-zinc-900 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-red-600/50 hover:bg-zinc-800">
                       Cotizar Proyecto Similar
                       <Icon
                         icon="solar:arrow-right-bold"
@@ -191,7 +191,7 @@ export function Portfolio() {
 
         {/* View More Button */}
         <div className="mt-12 text-center">
-          <button className="inline-flex items-center gap-2 rounded-lg border-2 border-red-600 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-600 hover:shadow-lg hover:shadow-red-600/25">
+          <button className="inline-flex items-center gap-2 border-2 border-red-600 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-600 hover:shadow-lg hover:shadow-red-600/25">
             Ver Más Proyectos
             <Icon
               icon="solar:alt-arrow-right-bold"

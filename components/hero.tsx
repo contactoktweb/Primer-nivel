@@ -50,14 +50,14 @@ export function Hero() {
           <div
             key={src}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentImage ? "opacity-40" : "opacity-0"
+              index === currentImage ? "opacity-65" : "opacity-0"
             }`}
           >
             <Image
               src={src}
               alt={`Modern Trade Show Stand Design ${index + 1}`}
               fill
-              className="object-cover brightness-[0.3]"
+              className="object-cover brightness-[0.55]"
               priority={index === 0}
             />
           </div>
@@ -77,34 +77,32 @@ export function Hero() {
           Especialistas en Diseño y Montaje de Stands
         </StatusBadge>
 
-        <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-          CONSTRUIMOS
-          <br />
-          {/* Red kept here — it's the single hero accent */}
-          <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
-            EXPERIENCIAS
+        <h1 className="mb-8 flex flex-col items-center">
+          <span className="text-5xl font-black tracking-[0.15em] text-white sm:text-7xl md:text-8xl lg:text-9xl">
+            PRIMER <span className="text-red-600">NIVEL</span>
           </span>
-          <br />
-          MEMORABLES
+          <span className="mt-4 text-sm font-bold tracking-[0.4em] text-zinc-200 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] uppercase sm:text-base md:text-lg lg:text-xl">
+            Construimos Experiencias Memorables
+          </span>
         </h1>
 
-        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
+        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-zinc-200 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] sm:text-xl">
           Diseño, Producción y Montaje de Stands y Eventos de{" "}
-          <span className="font-semibold text-white">Primer Nivel</span>
+          <span className="font-bold text-white">Primer Nivel</span>
         </p>
 
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          {/* Primary CTA — red stays */}
+        <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
+          {/* Primary CTA — 3D Red Button */}
           <Link
             href="#portafolio"
-            className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg border-2 border-red-600 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-600 hover:shadow-lg hover:shadow-red-600/25"
+            className="group relative inline-flex items-center justify-center overflow-hidden border-2 border-red-600 bg-red-600 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-200 active:translate-y-[2px] active:shadow-none shadow-[0_5px_0_rgb(153,27,27)] hover:bg-red-700 hover:border-red-700"
           >
             <span className="relative z-10">Ver Portafolio</span>
           </Link>
-          {/* Secondary CTA — grey-toned */}
+          {/* Secondary CTA — 3D Zinc Button */}
           <Link
             href="#contacto"
-            className="inline-flex items-center justify-center rounded-lg border border-zinc-600 bg-zinc-900/60 px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-300 transition-all duration-300 hover:border-zinc-400 hover:bg-zinc-800 hover:text-white"
+            className="inline-flex items-center justify-center border-2 border-zinc-600 bg-zinc-900/60 px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-300 transition-all duration-200 active:translate-y-[2px] active:shadow-none shadow-[0_5px_0_rgb(39,39,42)] hover:border-zinc-400 hover:bg-zinc-800 hover:text-white"
           >
             Contáctanos
           </Link>

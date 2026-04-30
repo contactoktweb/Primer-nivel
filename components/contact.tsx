@@ -128,7 +128,7 @@ export function Contact() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-red-600/10">
+            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center bg-red-600/10">
               <Icon icon="solar:chat-round-check-bold" className="h-5 w-5 text-red-600" />
             </div>
             <div>
@@ -179,7 +179,7 @@ export function Contact() {
             href="https://wa.me/573001234567?text=Hola%2C%20Me%20interesa%20su%20modelo%20de%20trabajo.%20Me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa%20para%20un%20nuevo%20proyecto."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-lg bg-red-600 px-10 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-red-600/30 transition-all duration-300 hover:bg-red-700 hover:shadow-red-600/50"
+            className="inline-flex items-center gap-3 bg-red-600 px-10 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-red-600/30 transition-all duration-300 hover:bg-red-700 hover:shadow-red-600/50"
           >
             <Icon icon="ri:whatsapp-fill" className="h-5 w-5" />
             Solicitar Cotización por WhatsApp

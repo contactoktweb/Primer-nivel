@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image"
 import { Icon } from "@iconify/react"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { StatusBadge } from "@/components/ui/status-badge"
 
 const services = [
@@ -80,9 +82,93 @@ const steps = [
   },
 ]
 
+function TiltCard({ service }: { service: any }) {
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  // Smooth springs for fluid kinetic motion
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 })
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 })
+
+  // Transform coordinates to rotation angles (max 15 degrees tilt)
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"])
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"])
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const width = rect.width
+    const height = rect.height
+    const mouseX = e.clientX - rect.left
+    const mouseY = e.clientY - rect.top
+    const xPct = mouseX / width - 0.5
+    const yPct = mouseY / height - 0.5
+    x.set(xPct)
+    y.set(yPct)
+  }
+
+  const handleMouseLeave = () => {
+    x.set(0)
+    y.set(0)
+  }
+
+  return (
+    <motion.div
+      className="group relative p-8 sm:p-10"
+      style={{ perspective: '1200px' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Invisible Floating Container with Kinetic Tilt */}
+      <motion.div
+        className="relative flex h-full flex-col"
+        style={{ 
+          rotateX, 
+          rotateY, 
+          transformStyle: "preserve-3d" 
+        }}
+        whileHover={{ 
+          y: -15, 
+          scale: 1.02,
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        {/* White Glow Background (No sharp edges) */}
+        <div 
+          className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 40%, transparent 70%)',
+            filter: 'blur(20px)',
+            transform: 'scale(1.2) translateY(20px)'
+          }}
+        />
+
+        {/* Content with 3D Pop-out effect */}
+        <div style={{ transform: "translateZ(50px)" }} className="transition-transform duration-300">
+          <Icon 
+            icon={service.icon} 
+            className="mb-6 h-12 w-12 text-red-600 transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]" 
+          />
+        </div>
+
+        <div style={{ transform: "translateZ(30px)" }} className="transition-transform duration-300">
+          <h3 className="mb-4 text-2xl font-bold text-white transition-all duration-500 group-hover:drop-shadow-[0_4px_10px_rgba(255,255,255,0.4)]">
+            {service.title}
+          </h3>
+        </div>
+
+        <div style={{ transform: "translateZ(10px)" }} className="transition-transform duration-300">
+          <p className="leading-relaxed text-zinc-400 transition-all duration-500 group-hover:text-zinc-200">
+            {service.description}
+          </p>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export function Services() {
   return (
-    <section id="servicios" className="bg-zinc-950 py-24">
+    <section id="servicios" className="bg-zinc-900 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -103,32 +189,17 @@ export function Services() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <div
-              key={service.title}
-              className="group relative overflow-hidden rounded-xl border border-white/5 bg-zinc-900/30 p-8 transition-all duration-300 hover:border-white/10 hover:bg-zinc-900/50"
-            >
-              {/* Hover Border Effect */}
-              <div className="absolute bottom-0 left-0 h-1 w-0 bg-red-600 transition-all duration-300 group-hover:w-full" />
-
-              {/* Icon */}
-              <Icon icon={service.icon} className="mb-6 h-10 w-10 text-red-600" />
-
-              {/* Content */}
-              <h3 className="mb-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-zinc-200">
-                {service.title}
-              </h3>
-              <p className="leading-relaxed text-white/80">{service.description}</p>
-            </div>
+            <TiltCard key={service.title} service={service} />
           ))}
         </div>
 
         {/* Process / Workflow */}
         <div className="mt-24">
           <div className="mb-12 text-center">
-            <h3 className="text-2xl font-bold text-white sm:text-3xl">
+            <h3 className="text-2xl font-bold text-white sm:text-3xl [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
               Nuestro Proceso de Trabajo
             </h3>
-            <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
+            <p className="mx-auto mt-4 max-w-2xl text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
               Un flujo de trabajo estructurado y transparente que garantiza resultados excepcionales en cada proyecto de diseño y montaje de stands.
             </p>
           </div>
@@ -137,26 +208,26 @@ export function Services() {
             {steps.map((step, index) => (
               <div
                 key={step.number}
-                className="group relative rounded-xl border border-white/[0.03] bg-zinc-900/20 p-6 transition-all duration-300 hover:border-red-600/20 hover:bg-zinc-900/40"
+                className="group relative rounded-2xl bg-zinc-900 p-6 shadow-[-4px_-4px_8px_rgba(255,255,255,0.03),4px_4px_8px_rgba(0,0,0,0.5)] transition-all duration-300 hover:shadow-[inset_-4px_-4px_8px_rgba(255,255,255,0.03),inset_4px_4px_8px_rgba(0,0,0,0.5)]"
               >
 
                 <div className="mb-3 flex items-center gap-3">
-                  <Icon icon={step.icon} className="h-6 w-6 text-red-600" />
-                  <h3 className="font-bold text-white">{step.title}</h3>
+                  <Icon icon={step.icon} className="h-6 w-6 text-red-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" />
+                  <h3 className="font-bold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">{step.title}</h3>
                 </div>
-                <p className="text-sm leading-relaxed text-zinc-500">{step.description}</p>
+                <p className="text-sm leading-relaxed text-zinc-400">{step.description}</p>
 
                 {/* Connector line (not on last items) */}
                 {index < steps.length - 1 && (
-                  <div className="absolute -right-3 top-1/2 hidden h-px w-6 bg-zinc-700 lg:block" />
+                  <div className="absolute -right-3 top-1/2 hidden h-px w-6 bg-zinc-700/50 lg:block shadow-sm" />
                 )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Featured Design Section */}
-        <div className="mt-20 overflow-hidden rounded-2xl border border-white/[0.03] bg-zinc-900/20 backdrop-blur-sm">
+        {/* Featured Design Section - Neumorphic */}
+        <div className="mt-20 overflow-hidden rounded-2xl bg-zinc-900 shadow-[-6px_-6px_12px_rgba(255,255,255,0.03),6px_6px_12px_rgba(0,0,0,0.5)]">
           <div className="grid lg:grid-cols-2">
             <div className="relative h-64 lg:h-auto">
               <Image
@@ -172,10 +243,10 @@ export function Services() {
               <StatusBadge className="mb-4" code="TEC-01">
                 Tecnología 3D
               </StatusBadge>
-              <h3 className="mb-4 text-2xl font-bold text-white">
+              <h3 className="mb-4 text-2xl font-bold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
                 Visualización y Renderizado 3D en Tiempo Real
               </h3>
-              <p className="mb-6 leading-relaxed text-zinc-400">
+              <p className="mb-6 leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
                 Utilizamos las herramientas de modelado y renderizado más avanzadas del mercado para que puedas recorrer virtualmente tu stand antes de que se fabrique la primera pieza. Precisión absoluta en cada milímetro, sin sorpresas en el día del montaje.
               </p>
               <div className="grid grid-cols-2 gap-4">
