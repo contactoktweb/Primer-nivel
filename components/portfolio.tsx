@@ -62,11 +62,10 @@ export function Portfolio() {
             </span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-zinc-400">
-            Cada proyecto es una historia de éxito. Explorá nuestra galería de stands diseñados y montados para ferias industriales, eventos corporativos, lanzamientos de producto y congresos en todo Colombia.
+            Combinamos creatividad, tecnología y precisión para construir espacios que comunican, conectan e impulsan marcas.
           </p>
         </div>
 
-        {/* Contextual SEO Article - Neumorphic */}
         <article className="mb-16 grid gap-8 rounded-2xl bg-zinc-900 p-8 lg:grid-cols-3 shadow-[-6px_-6px_12px_rgba(255,255,255,0.03),6px_6px_12px_rgba(0,0,0,0.5)]">
           <div className="lg:col-span-2">
             <h3 className="mb-3 text-xl font-bold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
@@ -94,7 +93,6 @@ export function Portfolio() {
           </div>
         </article>
 
-        {/* Spacious Project Showcase List */}
         <div className="flex flex-col gap-24 lg:gap-32" style={{ perspective: '1200px' }}>
           {projects.map((project, index) => {
             const isEven = index % 2 === 0
@@ -105,21 +103,17 @@ export function Portfolio() {
                 key={project.id}
                 className={`flex flex-col gap-8 md:gap-12 lg:items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
               >
-                {/* 3D Image Container (50% width on Desktop) */}
                 <div className="w-full lg:w-1/2" style={{ perspective: '1200px' }}>
                   <div
                     className="group relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-2xl md:aspect-video"
                     style={{
-                      /* Permanent 3D tilt and pop-out effect */
                       transform: `rotateX(4deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`,
                       transformStyle: 'preserve-3d',
-                      /* Permanent white glowing shadow */
                       boxShadow: '0 30px 60px rgba(255,255,255,0.15), 0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.2)',
                       transition: 'transform 0.5s cubic-bezier(0.23,1,0.32,1)',
                     }}
                     onMouseEnter={e => {
                       const el = e.currentTarget as HTMLDivElement
-                      /* Flatten out slightly on hover for an interactive feel */
                       el.style.transform = `rotateX(0deg) rotateY(0deg) translateY(-12px) scale(1.04)`
                     }}
                     onMouseLeave={e => {
@@ -127,7 +121,6 @@ export function Portfolio() {
                       el.style.transform = `rotateX(4deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`
                     }}
                   >
-                    {/* Full-bleed image */}
                     <Image
                       src={project.image}
                       alt={`${project.title} — Stand diseñado por PRIMER NIVEL`}
@@ -135,10 +128,8 @@ export function Portfolio() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
 
-                    {/* Lighter overlay just to ensure contrast against white glow if needed */}
                     <div className="absolute inset-0 bg-black/5" />
 
-                    {/* Glassmorphism gloss — top-left corner highlight */}
                     <div
                       className="pointer-events-none absolute inset-0"
                       style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%)' }}
@@ -146,7 +137,6 @@ export function Portfolio() {
                   </div>
                 </div>
 
-                {/* Text Content (50% width on Desktop) */}
                 <div className="flex w-full flex-col justify-center lg:w-1/2 lg:px-8">
                   <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.2em] text-red-600">
                     {project.category}
@@ -158,7 +148,6 @@ export function Portfolio() {
                     {project.description}
                   </p>
 
-                  {/* Added a placeholder features list to make the text block look premium and full */}
                   <ul className="mb-10 space-y-4 border-l-2 border-zinc-800 pl-6">
                     <li className="flex items-center gap-3 text-zinc-300">
                       <Icon icon="solar:ruler-pen-bold" className="h-5 w-5 text-red-600" />
@@ -189,7 +178,6 @@ export function Portfolio() {
           })}
         </div>
 
-        {/* View More Button */}
         <div className="mt-12 text-center">
           <button className="inline-flex items-center gap-2 border-2 border-red-600 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-600 hover:shadow-lg hover:shadow-red-600/25">
             Ver Más Proyectos

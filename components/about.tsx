@@ -5,42 +5,42 @@ import { StatusBadge } from "@/components/ui/status-badge"
 const values = [
   {
     icon: "solar:target-bold",
-    title: "Precisión",
-    description: "Trabajamos con exactitud milimétrica en cada detalle, garantizando acabados perfectos que reflejan la calidad de tu marca.",
+    title: "EJECUCIÓN PRECISA",
+    description: "Gestionamos cada detalle con eficiencia y cumplimiento.",
   },
   {
     icon: "solar:bolt-bold",
-    title: "Innovación",
-    description: "Incorporamos las últimas tendencias en diseño de espacios comerciales y materiales de vanguardia para diferenciarte.",
+    title: "DISEÑO ESTRATÉGICO",
+    description: "Creamos conceptos innovadores alineados con los objetivos de tu marca",
   },
   {
     icon: "solar:medal-star-bold",
-    title: "Excelencia",
-    description: "Comprometidos con los más altos estándares de calidad en cada proyecto, desde el diseño hasta la entrega final.",
+    title: "CALIDAD GARANTIZADA",
+    description: "Utilizamos materiales de alto estándar para resultados excepcionales.",
   },
 ]
 
 
 const whyUs = [
   {
-    icon: "solar:shield-check-bold",
-    title: "Garantía Total",
-    description: "Respaldamos cada proyecto con garantías de calidad y soporte postventa.",
+    icon: "solar:magic-stick-3-bold",
+    title: "SOLUCIONES A MEDIDA",
+    description: "Diseños exclusivos adaptados 100% a los objetivos y la personalidad de tu marca.",
   },
   {
     icon: "solar:clock-circle-bold",
-    title: "Entrega a Tiempo",
-    description: "Gestión de proyectos rigurosa para que tu stand esté listo cuando lo necesitas.",
-  },
-  {
-    icon: "solar:graph-up-bold",
-    title: "ROI Máximo",
-    description: "Diseños estratégicos que maximizan el retorno de inversión en cada feria y evento.",
+    title: "ENTREGA PUNTUAL",
+    description: "Garantizamos el montaje completo en los tiempos acordados, sin excusas ni retrasos.",
   },
   {
     icon: "solar:hand-shake-bold",
-    title: "Equipo Dedicado",
-    description: "Un consultor asignado a tu proyecto para una comunicación directa y eficiente.",
+    title: "ACOMPAÑAMIENTO TOTAL",
+    description: "Te apoyamos en cada etapa del proceso, desde el primer boceto hasta el desmontaje.",
+  },
+  {
+    icon: "solar:fire-bold",
+    title: "RESULTADOS QUE IMPACTAN",
+    description: "Creamos entornos estratégicos diseñados para que tu marca destaque y atraiga miradas.",
   },
 ]
 
@@ -49,9 +49,7 @@ export function About() {
     <section id="nosotros" className="bg-zinc-900 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* Main Grid: Image + Content */}
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
-          {/* Image Side — Overflow Effect */}
           <div className="relative group">
             <div className="absolute -inset-4 rounded-2xl border border-red-600/20 transition-all duration-700 group-hover:-inset-6 group-hover:border-red-600/40" />
             <div className="absolute -top-6 -left-6 h-12 w-12 border-t-2 border-l-2 border-red-600 transition-all duration-700 group-hover:-top-8 group-hover:-left-8" />
@@ -74,7 +72,6 @@ export function About() {
             <div className="absolute -bottom-10 -right-10 h-64 w-64 rounded-full bg-red-600/10 blur-[100px] transition-all duration-700 group-hover:bg-red-600/20" />
           </div>
 
-          {/* Content Side */}
           <div>
             <StatusBadge className="mb-6" code="ABT-02">
               Sobre Nosotros
@@ -86,14 +83,10 @@ export function About() {
               </span>
             </h2>
 
-            <p className="mb-4 text-lg leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
-              En <span className="font-semibold text-white">PRIMER NIVEL</span> somos especialistas en transformar espacios en experiencias comerciales memorables. Con más de una década de trayectoria en el mercado colombiano, nos hemos consolidado como referentes en el diseño, producción y montaje de stands para ferias industriales, eventos corporativos y activaciones de marca.
-            </p>
-            <p className="mb-8 leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
-              Nuestro equipo interdisciplinario de diseñadores, arquitectos e ingenieros combina creatividad, técnica y pasión para entregar proyectos que superan las expectativas de cada cliente, generando el máximo impacto visual y retorno de inversión en cada evento.
+            <p className="mb-8 text-lg leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
+              Somos una empresa especializada en el diseño construcción y producción de espacios comerciales que conectan marcas con experiencias memorables. Convertimos ideas en entornos estratégicos que generan impacto y resultados.
             </p>
 
-            {/* Mission & Vision - Neumorphic Cards */}
             <div className="mb-8 grid gap-6 sm:grid-cols-2">
               <div className="rounded-2xl bg-zinc-900 p-6 shadow-[-6px_-6px_12px_rgba(255,255,255,0.03),6px_6px_12px_rgba(0,0,0,0.5)]">
                 <h3 className="mb-3 flex items-center gap-2 font-bold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
@@ -115,7 +108,6 @@ export function About() {
               </div>
             </div>
 
-            {/* Values - Neumorphic Pressed Cards */}
             <div className="grid gap-6 sm:grid-cols-3">
               {values.map((value) => (
                 <div
@@ -133,7 +125,6 @@ export function About() {
 
 
 
-        {/* Why Us */}
         <div className="mt-20">
           <div className="mb-12 text-center">
             <h3 className="text-2xl font-bold text-white sm:text-3xl">
@@ -157,7 +148,6 @@ export function About() {
                     transform: 'rotateX(15deg) rotateY(25deg)',
                   }}
                 >
-                {/* Isometric Depth/Shadow layer */}
                 <div 
                   className="absolute inset-0 rounded-xl bg-red-600/10 border border-red-600/30 transition-transform duration-500 group-hover:bg-red-600/20"
                   style={{
@@ -165,7 +155,6 @@ export function About() {
                   }}
                 />
                 
-                {/* Main Front Face */}
                 <div 
                   className="relative h-full rounded-xl border border-white/[0.08] bg-zinc-900 p-6 backdrop-blur-md transition-all duration-500 group-hover:-translate-y-2 group-hover:-translate-x-2 group-hover:bg-zinc-800"
                   style={{

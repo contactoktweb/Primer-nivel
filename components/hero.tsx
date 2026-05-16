@@ -26,7 +26,6 @@ export function Hero() {
       id="inicio"
       className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-black"
     >
-      {/* Background Pattern - Diagonal Lines */}
       <div className="absolute inset-0 opacity-[0.04]">
         <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -44,7 +43,6 @@ export function Hero() {
         </svg>
       </div>
 
-      {/* Background Images with Autoplay */}
       <div className="absolute inset-0 overflow-hidden">
         {heroImages.map((src, index) => (
           <div
@@ -63,15 +61,12 @@ export function Hero() {
           </div>
         ))}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-        {/* Subtle red glow instead of grey — brings warmth back */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08)_0%,transparent_70%)]" />
       </div>
 
-      {/* Glow Effects — red-toned */}
       <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-red-600/5 blur-[120px]" />
       <div className="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-red-600/5 blur-[120px]" />
 
-      {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <StatusBadge className="mb-8" code="EXC-01">
           Especialistas en Diseño y Montaje de Stands
@@ -92,14 +87,12 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
-          {/* Primary CTA — 3D Red Button */}
           <Link
-            href="#portafolio"
+            href="/proyectos"
             className="group relative inline-flex items-center justify-center overflow-hidden border-2 border-red-600 bg-red-600 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-200 active:translate-y-[2px] active:shadow-none shadow-[0_5px_0_rgb(153,27,27)] hover:bg-red-700 hover:border-red-700"
           >
             <span className="relative z-10">Ver Portafolio</span>
           </Link>
-          {/* Secondary CTA — 3D Zinc Button */}
           <Link
             href="#contacto"
             className="inline-flex items-center justify-center border-2 border-zinc-600 bg-zinc-900/60 px-8 py-4 text-sm font-bold uppercase tracking-wider text-zinc-300 transition-all duration-200 active:translate-y-[2px] active:shadow-none shadow-[0_5px_0_rgb(39,39,42)] hover:border-zinc-400 hover:bg-zinc-800 hover:text-white"
@@ -109,7 +102,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Carousel Indicators — grey default, red active */}
       <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-3 z-20">
         {heroImages.map((_, index) => (
           <button

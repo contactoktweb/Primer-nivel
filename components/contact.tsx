@@ -6,23 +6,23 @@ const contactInfo = [
   {
     icon: "solar:phone-calling-bold",
     title: "Llámanos",
-    content: "+57 300 123 4567",
-    href: "tel:+573001234567",
+    content: "+57 317 332 2149",
+    href: "tel:+573173322149",
     description: "Atención personalizada de lunes a viernes, 8am – 6pm. Respuesta inmediata para cotizaciones urgentes.",
   },
   {
     icon: "solar:letter-bold",
     title: "Escríbenos",
-    content: "info@primernivel.com",
-    href: "mailto:info@primernivel.com",
+    content: "gerencia@primernivel.com",
+    href: "mailto:gerencia@primernivel.com",
     description: "Enviamos propuestas detalladas con diseño 3D y cotización en menos de 24 horas hábiles.",
   },
   {
     icon: "solar:map-point-bold",
     title: "Visítanos",
-    content: "Bogotá, Colombia",
+    content: "Cra 3 #4 10, Mosquera Cundinamarca",
     href: "#",
-    description: "Sede principal en Bogotá con cobertura a nivel nacional. Atendemos eventos en todo el país.",
+    description: "Sede principal en Mosquera con cobertura a nivel nacional. Atendemos eventos en todo el país.",
   },
 ]
 
@@ -56,7 +56,6 @@ const faqs = [
 export function Contact() {
   return (
     <section id="contacto" className="relative overflow-hidden bg-black py-24">
-      {/* Background Decor */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-stand.png"
@@ -70,7 +69,6 @@ export function Contact() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* Section Header */}
         <div className="mb-16 text-center">
           <StatusBadge className="mb-6" code="CNT-05">
             Contacto
@@ -86,7 +84,6 @@ export function Contact() {
           </p>
         </div>
 
-        {/* Contact Cards */}
         <div className="grid gap-6 lg:grid-cols-3">
           {contactInfo.map((item, index) => (
             <a
@@ -107,7 +104,6 @@ export function Contact() {
           ))}
         </div>
 
-        {/* Info Strip: Hours + Coverage */}
         <div className="mt-8 grid gap-4 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 sm:grid-cols-3">
           <div className="flex items-center gap-4">
             <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-red-600/10">
@@ -138,19 +134,99 @@ export function Contact() {
           </div>
         </div>
 
-        {/* FAQ Section */}
+        <div className="mt-20 grid gap-12 lg:grid-cols-2">
+          <div className="flex flex-col justify-center">
+            <h3 className="mb-6 text-2xl font-bold text-white sm:text-3xl">
+              Inicia tu proyecto hoy mismo
+            </h3>
+            <p className="mb-8 text-lg leading-relaxed text-zinc-400">
+              Estamos listos para transformar tus ideas en espacios comerciales de impacto. Completa el formulario o contáctanos directamente por WhatsApp para una asesoría inmediata.
+            </p>
+            
+            <div className="space-y-6">
+              <a
+                href="https://wa.me/573173322149"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 rounded-xl border border-green-600/20 bg-green-600/5 p-4 transition-all duration-300 hover:border-green-600/40 hover:bg-green-600/10"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600 text-white shadow-lg shadow-green-600/20">
+                  <Icon icon="ri:whatsapp-fill" className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-green-500">WhatsApp Inmediato</p>
+                  <p className="font-bold text-white">+57 317 332 2149</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 shadow-xl backdrop-blur-sm">
+            <form className="space-y-4">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-1.5">
+                  <label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-zinc-500">Nombre Completo</label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Tu nombre"
+                    className="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:border-red-600/50 focus:outline-none focus:ring-1 focus:ring-red-600/50 transition-all"
+                    required
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label htmlFor="phone" className="text-xs font-bold uppercase tracking-widest text-zinc-500">Teléfono / WhatsApp</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    placeholder="317..."
+                    className="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:border-red-600/50 focus:outline-none focus:ring-1 focus:ring-red-600/50 transition-all"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="space-y-1.5">
+                <label htmlFor="email" className="text-xs font-bold uppercase tracking-widest text-zinc-500">Correo Electrónico</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="ejemplo@correo.com"
+                  className="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:border-red-600/50 focus:outline-none focus:ring-1 focus:ring-red-600/50 transition-all"
+                  required
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-zinc-500">Cuéntanos sobre tu proyecto</label>
+                <textarea
+                  id="message"
+                  rows={3}
+                  placeholder="Describe brevemente lo que necesitas..."
+                  className="w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm text-white placeholder:text-zinc-600 focus:border-red-600/50 focus:outline-none focus:ring-1 focus:ring-red-600/50 transition-all resize-none"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-red-600 py-4 text-xs font-black uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/30 active:scale-[0.98]"
+              >
+                Enviar Solicitud
+              </button>
+            </form>
+          </div>
+        </div>
+
         <div className="mt-24">
           <div className="mb-12 text-center">
             <h3 className="text-2xl font-bold text-white sm:text-3xl">
               Preguntas Frecuentes
             </h3>
             <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
-              Resolvemos las dudas más comunes sobre nuestros servicios de diseño, producción y montaje de stands.
+              Resolvemos las dudas más comunes sobre nuestros servicios de diseño y montaje.
             </p>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-2">
-            {faqs.map((faq, index) => (
+            {faqs.slice(0, 4).map((faq, index) => (
               <div
                 key={index}
                 className="group rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:border-red-600/30"
@@ -165,25 +241,6 @@ export function Contact() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* CTA Final */}
-        <div className="mt-20 rounded-2xl border border-red-600/20 bg-gradient-to-br from-zinc-900 via-zinc-900 to-red-950/20 p-10 text-center">
-          <h3 className="mb-4 text-2xl font-bold text-white sm:text-3xl">
-            ¿Tienes un evento próximo?
-          </h3>
-          <p className="mx-auto mb-8 max-w-xl text-zinc-400">
-            Solicita tu cotización ahora y recibe una propuesta de diseño personalizada en menos de 24 horas. Tu stand de primer nivel te espera.
-          </p>
-          <a
-            href="https://wa.me/573001234567?text=Hola%2C%20Me%20interesa%20su%20modelo%20de%20trabajo.%20Me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa%20para%20un%20nuevo%20proyecto."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-red-600 px-10 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-red-600/30 transition-all duration-300 hover:bg-red-700 hover:shadow-red-600/50"
-          >
-            <Icon icon="ri:whatsapp-fill" className="h-5 w-5" />
-            Solicitar Cotización por WhatsApp
-          </a>
         </div>
 
       </div>

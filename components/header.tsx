@@ -21,7 +21,6 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { scrollY } = useScroll()
   
-  // Snappier scroll-linked transformations (reduced range to 20px)
   const headerBg = useTransform(
     scrollY,
     [0, 20],
@@ -40,17 +39,17 @@ export function Header() {
   const navLinkColor = useTransform(
     scrollY,
     [0, 20],
-    ["#3f3f46", "#a1a1aa"] // zinc-600 to zinc-400
+    ["#3f3f46", "#a1a1aa"]
   )
   const navLinkActiveColor = useTransform(
     scrollY,
     [0, 20],
-    ["#09090b", "#ffffff"] // zinc-950 to white
+    ["#09090b", "#ffffff"]
   )
   const dividerColor = useTransform(
     scrollY,
     [0, 20],
-    ["rgba(228, 228, 231, 1)", "rgba(39, 39, 42, 1)"] // zinc-200 to zinc-800
+    ["rgba(228, 228, 231, 1)", "rgba(39, 39, 42, 1)"]
   )
   const borderOpacity = useTransform(
     scrollY,
@@ -91,14 +90,12 @@ export function Header() {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="sticky top-0 z-50 w-full"
     >
-      {/* Animated Glowing Underline (Visible on Scroll) */}
       <motion.div 
         style={{ opacity: borderOpacity }}
         className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-red-600/40 to-transparent"
       />
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Original Technical HUD Logo Container */}
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -112,10 +109,8 @@ export function Header() {
               }}
               className="relative overflow-hidden rounded-xl p-1"
             >
-              {/* Restored Red Brackets Animation */}
               <span className="absolute left-0 top-0 h-2 w-2 border-l-2 border-t-2 border-red-600/60 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:border-red-600" />
               <span className="absolute right-0 bottom-0 h-2 w-2 border-b-2 border-r-2 border-red-600/60 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:border-red-600" />
-              {/* Glass Reflection Sweep */}
               <motion.div
                 animate={{ x: ["-150%", "150%"] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
@@ -133,7 +128,6 @@ export function Header() {
           </Link>
         </motion.div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-2">
           {navLinks.filter(l => l.href !== '/contacto').map((link, i) => {
             const active = pathname === link.href
@@ -163,7 +157,6 @@ export function Header() {
                     {link.label}
                   </motion.span>
                   
-                  {/* Dynamic hover pill */}
                   <motion.span
                     className="absolute inset-0 z-0 bg-zinc-400/0 group-hover:bg-zinc-100/80 dark:group-hover:bg-zinc-900/50"
                     layoutId="navHoverHighlight"
@@ -175,7 +168,6 @@ export function Header() {
           })}
         </nav>
 
-        {/* Right Section */}
         <div className="hidden lg:flex items-center">
           <motion.div 
             style={{ borderColor: dividerColor }}
@@ -192,16 +184,19 @@ export function Header() {
               >
                 <Link
                   href={social.href}
-                  style={{ color: navLinkColor }}
-                  className="transition-colors duration-300 hover:!text-red-600"
+                  className="group transition-colors duration-300"
                 >
-                  <Icon icon={social.icon} className="h-4 w-4" />
+                  <motion.span
+                    style={{ color: navLinkColor }}
+                    className="flex items-center justify-center transition-colors duration-300 group-hover:!text-red-600"
+                  >
+                    <Icon icon={social.icon} className="h-4 w-4" />
+                  </motion.span>
                 </Link>
               </motion.div>
             ))}
           </motion.div>
           
-          {/* Action Button */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -218,7 +213,6 @@ export function Header() {
           </motion.div>
         </div>
 
-        {/* Mobile Toggle */}
         <div className="flex items-center lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -239,7 +233,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

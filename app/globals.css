@@ -23,7 +23,6 @@
   --border: #27272a;
   --input: #27272a;
   --ring: #dc2626;
-  /* Steel grey from the logo mark — secondary accent */
   --accent-grey: #7a7a7a;
   --accent-grey-light: #a0a0a0;
   --chart-1: #dc2626;
@@ -84,7 +83,6 @@
   }
 }
 
-/* Custom utilities */
 @layer utilities {
   .bg-gradient-radial {
     background-image: radial-gradient(var(--tw-gradient-stops));
