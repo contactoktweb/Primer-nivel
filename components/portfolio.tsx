@@ -3,47 +3,167 @@ import Image from "next/image"
 import { StatusBadge } from "@/components/ui/status-badge"
 import { Icon } from "@iconify/react"
 import { cn } from "@/lib/utils"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
+const allImages = [
+  "WhatsApp Image 2026-07-24 at 9.12.51 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.51 AM.jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.52 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.52 AM (2).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.52 AM (3).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.52 AM (4).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.52 AM (5).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.52 AM (6).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.52 AM (7).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.52 AM.jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.53 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.53 AM (2).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.53 AM (3).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.53 AM (4).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.53 AM (5).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.53 AM.jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.54 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.54 AM (2).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.54 AM (3).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.54 AM (4).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.54 AM (5).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.54 AM (6).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.54 AM.jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.55 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.55 AM (2).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.55 AM (3).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.55 AM (4).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.55 AM (5).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.55 AM.jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.56 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.56 AM (2).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.56 AM (3).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.56 AM (4).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.56 AM (5).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.56 AM (6).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.56 AM.jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.57 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.57 AM (2).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.57 AM (3).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.57 AM (4).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.57 AM (5).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.57 AM (6).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.57 AM.jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.58 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.58 AM (2).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.58 AM (3).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.58 AM (4).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.58 AM (5).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.58 AM (6).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.58 AM.jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.59 AM (1).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.59 AM (2).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.59 AM (3).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.59 AM (4).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.59 AM (5).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.59 AM (6).jpeg",
+  "WhatsApp Image 2026-07-24 at 9.12.59 AM.jpeg"
+]
 
 const projects = [
   {
     id: 1,
-    title: "Stand Comercial Tech",
-    category: "Feria Tecnológica",
+    title: "STAND AUDIOVISUAL",
+    category: "Soluciones Multimedia",
     size: "large",
-    image: "/images/hero-stand.png",
-    description: "Diseño interactivo con pantallas LED de gran formato y zonas de experiencia virtual para demostración de software en tiempo real.",
+    images: [
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM (3).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM (4).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM (5).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM.jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.53 AM (3).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.53 AM (5).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.56 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.56 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.56 AM (3).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.56 AM (4).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (3).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (4).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (5).jpeg",
+    ],
+    description: "Espacios dinámicos y tecnológicos con integración de pantallas LED, sonido envolvente y proyecciones inmersivas. Perfectos para crear experiencias de alto impacto visual y auditivo en ferias y exposiciones.",
   },
   {
     id: 2,
-    title: "Boutique de Lujo",
-    category: "Retail Premium",
-    size: "small",
-    image: "/images/hero-2.png",
-    description: "Espacio comercial elegante con iluminación focalizada, mobiliario a medida y acabados en mármol y madera de nogal.",
+    title: "STAND PUBLICITARIO",
+    category: "Marketing & Activaciones",
+    size: "medium",
+    images: [
+      "WhatsApp Image 2026-07-24 at 9.12.51 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.51 AM.jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.54 AM (3).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.54 AM (4).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.54 AM (5).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.54 AM (6).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.54 AM.jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.55 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.56 AM (5).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.56 AM (6).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.56 AM.jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.58 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.58 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.58 AM (3).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.58 AM (4).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.58 AM (5).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.58 AM (6).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.58 AM.jpeg",
+    ],
+    description: "Diseños orientados a la visibilidad y recordación de marca. Incorporamos elementos creativos, mobiliario personalizado y zonas de interacción para maximizar el engagement y la recolección de leads.",
   },
   {
     id: 3,
-    title: "Pabellón Automotriz",
-    category: "Industria Automotriz",
-    size: "medium",
-    image: "/images/hero-3.png",
-    description: "Estructura de alto impacto visual diseñada para el lanzamiento de nuevos vehículos, con tarimas giratorias y salas VIP.",
+    title: "STAND INMOBILIARIO",
+    category: "Salas de Ventas & Proyectos",
+    size: "large",
+    images: [
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM (6).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM (7).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.53 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.53 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.53 AM.jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.55 AM (3).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.55 AM (4).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.55 AM (5).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.57 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.57 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.57 AM (3).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.57 AM (4).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.57 AM (5).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.57 AM (6).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.57 AM.jpeg",
+    ],
+    description: "Entornos elegantes y acogedores diseñados para proyectar confianza y exclusividad. Incluyen áreas privadas de negociación, maquetas destacadas y acabados premium que reflejan el nivel de tus proyectos.",
   },
   {
     id: 4,
-    title: "Stand Farmacéutico",
-    category: "Congreso Médico",
-    size: "small",
-    image: "/images/project-1.png",
-    description: "Diseño aséptico y minimalista enfocado en la atención personalizada, con módulos privados para consultorías.",
-  },
-  {
-    id: 5,
-    title: "Isla de Activación",
-    category: "Marketing Experiencial",
+    title: "STAND ESCENOGRAFÍAS",
+    category: "Montajes & Eventos",
     size: "medium",
-    image: "/images/project-2.png",
-    description: "Módulo 360 grados de alto tráfico para centros comerciales, optimizado para recolección de leads y entrega de muestras.",
+    images: [
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.53 AM (4).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.54 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.54 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.55 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.55 AM.jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (6).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM.jpeg",
+    ],
+    description: "Creación de atmósferas únicas y decorados temáticos para eventos corporativos, congresos y producciones. Transformamos cualquier espacio en un escenario espectacular adaptado a la narrativa de tu evento.",
   },
 ]
 
@@ -93,7 +213,7 @@ export function Portfolio() {
           </div>
         </article>
 
-        <div className="flex flex-col gap-24 lg:gap-32" style={{ perspective: '1200px' }}>
+        <div className="flex flex-col gap-24 lg:gap-32">
           {projects.map((project, index) => {
             const isEven = index % 2 === 0
             const tiltY = isEven ? -4 : 4
@@ -103,38 +223,49 @@ export function Portfolio() {
                 key={project.id}
                 className={`flex flex-col gap-8 md:gap-12 lg:items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
               >
-                <div className="w-full lg:w-1/2" style={{ perspective: '1200px' }}>
-                  <div
-                    className="group relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-2xl md:aspect-video"
-                    style={{
-                      transform: `rotateX(4deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`,
-                      transformStyle: 'preserve-3d',
-                      boxShadow: '0 30px 60px rgba(255,255,255,0.15), 0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.2)',
-                      transition: 'transform 0.5s cubic-bezier(0.23,1,0.32,1)',
-                    }}
-                    onMouseEnter={e => {
-                      const el = e.currentTarget as HTMLDivElement
-                      el.style.transform = `rotateX(0deg) rotateY(0deg) translateY(-12px) scale(1.04)`
-                    }}
-                    onMouseLeave={e => {
-                      const el = e.currentTarget as HTMLDivElement
-                      el.style.transform = `rotateX(4deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`
-                    }}
-                  >
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} — Stand diseñado por PRIMER NIVEL`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                <div className="w-full lg:w-1/2">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {project.images.map((img, i) => (
+                        <CarouselItem key={i}>
+                          <div
+                            className="group relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-2xl md:aspect-video"
+                            style={{
+                              transform: `rotateX(4deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`,
+                              transformStyle: 'preserve-3d',
+                              boxShadow: '0 30px 60px rgba(255,255,255,0.15), 0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.2)',
+                              transition: 'transform 0.5s cubic-bezier(0.23,1,0.32,1)',
+                            }}
+                            onMouseEnter={e => {
+                              const el = e.currentTarget as HTMLDivElement
+                              el.style.transform = `rotateX(0deg) rotateY(0deg) translateY(-12px) scale(1.04)`
+                            }}
+                            onMouseLeave={e => {
+                              const el = e.currentTarget as HTMLDivElement
+                              el.style.transform = `rotateX(4deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`
+                            }}
+                          >
+                            <Image
+                              src={`/proyectos-primer-nivel/${img}`}
+                              alt={`${project.title} — Imagen ${i + 1}`}
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
 
-                    <div className="absolute inset-0 bg-black/5" />
+                            <div className="absolute inset-0 bg-black/5" />
 
-                    <div
-                      className="pointer-events-none absolute inset-0"
-                      style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%)' }}
-                    />
-                  </div>
+                            <div
+                              className="pointer-events-none absolute inset-0"
+                              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%)' }}
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    
+                    <CarouselPrevious className="left-4 bg-zinc-900/80 hover:bg-red-600 border-none text-white hover:text-white" />
+                    <CarouselNext className="right-4 bg-zinc-900/80 hover:bg-red-600 border-none text-white hover:text-white" />
+                  </Carousel>
                 </div>
 
                 <div className="flex w-full flex-col justify-center lg:w-1/2 lg:px-8">
@@ -191,3 +322,4 @@ export function Portfolio() {
     </section>
   )
 }
+
