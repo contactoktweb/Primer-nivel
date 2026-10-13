@@ -6,6 +6,7 @@ import { StatusBadge } from "@/components/ui/status-badge"
 
 const services = [
   {
+    id: "diseno",
     icon: "solar:pen-new-square-bold",
     title: "DISEÑO Y CONCEPTUALIZACIÓN",
     features: ["Stands comerciales", "Arquitectura comercial", "Renders y visualización 3D"],
@@ -13,6 +14,7 @@ const services = [
       "Transformamos tus objetivos comerciales en soluciones arquitectónicas de alto impacto, utilizando herramientas de visualización fotorrealista para asegurar que cada detalle sea perfecto antes de su ejecución.",
   },
   {
+    id: "produccion",
     icon: "solar:settings-bold",
     title: "PRODUCCIÓN Y MONTAJE",
     features: ["Fabricación de estructuras", "Montaje e instalación", "Logística y coordinación"],
@@ -20,6 +22,7 @@ const services = [
       "Contamos con infraestructura técnica y taller propio para garantizar un montaje impecable, respaldado por una gestión integral que asegura el cumplimiento estricto de los tiempos de entrega.",
   },
   {
+    id: "equipamiento",
     icon: "solar:play-bold",
     title: "EQUIPAMIENTO",
     features: ["Alquiler de mobiliario", "Alquiler audiovisual", "Impresión a gran formato"],
@@ -179,7 +182,9 @@ export function Services() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <TiltCard key={service.title} service={service} />
+            <div key={service.title} id={service.id} className="scroll-mt-24">
+              <TiltCard service={service} />
+            </div>
           ))}
         </div>
 
