@@ -1,7 +1,7 @@
 import { Hero } from "@/components/hero"
 import { LocationsMap } from "@/components/locations-map"
 import { StandShowcase } from "@/components/stand-showcase"
-import { CatalogBanner } from "@/components/catalog-banner"
+import { ContactCatalogSection } from "@/components/contact-catalog-section"
 
 export default function HomePage() {
   return (
@@ -9,7 +9,8 @@ export default function HomePage() {
       <Hero />
       <StandShowcase />
       <LocationsMap />
-      <CatalogBanner />
+      <ContactCatalogSection />
     </>
   )
 }
+

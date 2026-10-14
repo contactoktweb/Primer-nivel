@@ -68,8 +68,10 @@ export function LocationsMap() {
   const markers = LOCATIONS.map((loc) => ({ ...loc, point: project(loc.coords) as Position }))
 
   return (
-    <section id="presencia" aria-labelledby="presencia-title" className="relative bg-[#0a0a0a] py-24 text-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 border-y border-white/15 px-6 py-16 lg:grid-cols-[1fr_1.4fr]">
+    <section id="presencia" aria-labelledby="presencia-title" className="relative bg-[#0a0a0a] pt-[1cm] pb-0 text-white">
+
+      <div className="mx-auto grid max-w-7xl items-center gap-12 border-y border-white/15 px-6 py-[1cm] lg:grid-cols-[1fr_1.4fr]">
+
         <header>
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-red-600">Presencia regional</p>
           <h2 id="presencia-title" className="text-3xl font-black uppercase leading-tight tracking-tight md:text-4xl">

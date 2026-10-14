@@ -45,6 +45,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,6 +59,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+
+
         <WhatsAppButton />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -162,7 +162,8 @@ function TiltCard({ service }: { service: any }) {
 
 export function Services() {
   return (
-    <section id="servicios" className="bg-zinc-900 py-24">
+    <section id="servicios" className="bg-zinc-900 pt-[1cm] pb-24">
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="mb-16 text-center">

@@ -46,7 +46,7 @@ const whyUs = [
 
 export function About() {
   return (
-    <section id="nosotros" className="bg-zinc-900 py-24">
+    <section id="nosotros" className="bg-zinc-900 pt-[1cm] pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
@@ -76,7 +76,8 @@ export function About() {
             <StatusBadge className="mb-6" code="ABT-02">
               Sobre Nosotros
             </StatusBadge>
-            <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-md">
+            <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl drop-shadow-md">
+
               Líderes en Diseño y Montaje de{" "}
               <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
                 Stands para Ferias y Eventos

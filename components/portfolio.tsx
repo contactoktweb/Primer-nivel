@@ -74,8 +74,8 @@ const allImages = [
 const projects = [
   {
     id: 1,
-    title: "STAND AUDIOVISUAL",
-    category: "Soluciones Multimedia",
+    title: "ARQUITECTURA EFÍMERA",
+    category: "Stands & Ferias",
     size: "large",
     images: [
       "WhatsApp Image 2026-07-24 at 9.12.52 AM (2).jpeg",
@@ -93,12 +93,12 @@ const projects = [
       "WhatsApp Image 2026-07-24 at 9.12.59 AM (4).jpeg",
       "WhatsApp Image 2026-07-24 at 9.12.59 AM (5).jpeg",
     ],
-    description: "Espacios dinámicos y tecnológicos con integración de pantallas LED, sonido envolvente y proyecciones inmersivas. Perfectos para crear experiencias de alto impacto visual y auditivo en ferias y exposiciones.",
+    description: "Diseñamos y construimos estructuras efímeras de alto impacto para ferias, exposiciones y eventos comerciales. Cada espacio es concebido estratégicamente para maximizar la presencia de marca y generar conexiones reales con el público.",
   },
   {
     id: 2,
-    title: "STAND PUBLICITARIO",
-    category: "Marketing & Activaciones",
+    title: "ESCENOGRAFÍAS",
+    category: "Montajes & Eventos",
     size: "medium",
     images: [
       "WhatsApp Image 2026-07-24 at 9.12.51 AM (1).jpeg",
@@ -124,8 +124,8 @@ const projects = [
   },
   {
     id: 3,
-    title: "STAND INMOBILIARIO",
-    category: "Salas de Ventas & Proyectos",
+    title: "RENTA DE MOBILIARIO",
+    category: "Mobiliario & Exhibición",
     size: "large",
     images: [
       "WhatsApp Image 2026-07-24 at 9.12.52 AM (6).jpeg",
@@ -148,8 +148,8 @@ const projects = [
   },
   {
     id: 4,
-    title: "STAND ESCENOGRAFÍAS",
-    category: "Montajes & Eventos",
+    title: "IMPRESIÓN A GRAN FORMATO",
+    category: "Impresión & Señalización",
     size: "medium",
     images: [
       "WhatsApp Image 2026-07-24 at 9.12.52 AM (1).jpeg",
@@ -163,19 +163,34 @@ const projects = [
       "WhatsApp Image 2026-07-24 at 9.12.59 AM (6).jpeg",
       "WhatsApp Image 2026-07-24 at 9.12.59 AM.jpeg",
     ],
-    description: "Creación de atmósferas únicas y decorados temáticos para eventos corporativos, congresos y producciones. Transformamos cualquier espacio en un escenario espectacular adaptado a la narrativa de tu evento.",
+    description: "Impresión de alta resolución en viniles, telas, lonas y materiales rígidos para fondos de stand, señalización, paneles y cualquier formato requerido en tu evento o espacio comercial.",
+  },
+  {
+    id: 5,
+    title: "ALQUILER DE EQUIPOS AUDIOVISUALES",
+    category: "Audiovisual & Tecnología",
+    size: "medium",
+    images: [
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (2).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM (6).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.59 AM.jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.52 AM (1).jpeg",
+      "WhatsApp Image 2026-07-24 at 9.12.55 AM (1).jpeg",
+    ],
+    description: "Renta de pantallas LED, TVs y equipos audiovisuales para eventos, ferias y espacios comerciales. Contamos con tecnología de última generación para crear experiencias visuales y sonoras de alto impacto.",
   },
 ]
 
 export function Portfolio() {
   return (
-    <section id="portafolio" className="bg-zinc-900 py-24">
+    <section id="portafolio" className="bg-zinc-900 pt-[1cm] pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
           <StatusBadge className="mb-6" code="PRT-04">
-            Proyectos
+            Nuestro Portafolio de Servicios
           </StatusBadge>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Portafolio de{" "}
             <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
               Stands y Eventos Comerciales

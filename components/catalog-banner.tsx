@@ -3,12 +3,13 @@
  * Place the file at /public/catalogo-primer-nivel.pdf to activate the links.
  */
 export function CatalogBanner() {
-  const catalogPath = "/catalogo-primer-nivel.pdf"
+  const catalogPath = "/BROSHURE PRIMER NIVEL.pdf"
+
 
   return (
     <div
       id="catalogo"
-      className="relative flex flex-col items-center justify-between gap-4 border-y border-white/10 bg-zinc-950 px-6 py-5 sm:flex-row sm:gap-6 md:px-12"
+      className="relative flex flex-col items-center justify-between gap-4 border-y border-white/10 bg-zinc-950 px-6 py-[1cm] sm:flex-row sm:gap-6 md:px-12"
       aria-label="Descarga nuestro catálogo de stands en PDF"
     >
       {/* Left: icon + text */}
