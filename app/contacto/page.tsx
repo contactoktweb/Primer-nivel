@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Contacto | PRIMER NIVEL',
   description: 'Contáctanos para tu próximo proyecto de stand o evento. Asesoría personalizada y cotizaciones.',
 }
-//ahjdb
+
 export default function ContactoPage() {
   return (
     <>
