@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import { Icon } from "@iconify/react"
 
 const BASE = "/proyectos-primer-nivel"
 
@@ -177,10 +178,11 @@ export function FurnitureRental() {
           <Link
             href="/contacto"
             id="mobiliario-cta"
-            className="furniture-reveal mt-8 inline-flex items-center rounded-full bg-red-600 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-all duration-200 hover:bg-red-700 active:scale-95"
+            className="furniture-reveal group mt-8 inline-flex items-center gap-2 border border-red-600 bg-red-600 px-6 py-3 text-[10px] font-black uppercase tracking-[0.25em] text-white shadow-[0_4px_0_rgb(153,27,27)] transition-all duration-200 hover:brightness-110 active:translate-y-[2px] active:shadow-none"
             style={{ transitionDelay: ".6s" }}
           >
             Cotizar mobiliario
+            <Icon icon="solar:arrow-right-bold" className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         </div>
 

@@ -65,8 +65,8 @@ export function Footer() {
             <h3 className="mb-6 text-sm font-bold uppercase tracking-wider text-white">Síguenos</h3>
             <div className="flex flex-row flex-wrap gap-3">
               {[
-                { icon: "ri:facebook-box-fill", href: "#", label: "Facebook" },
-                { icon: "ri:instagram-fill", href: "#", label: "Instagram" },
+                { icon: "ri:facebook-box-fill", href: "https://www.facebook.com/primerniveldiseno", label: "Facebook" },
+                { icon: "ri:instagram-fill", href: "https://www.instagram.com/primerniveldiseno", label: "Instagram" },
                 { icon: "ic:baseline-tiktok", href: "#", label: "TikTok" },
                 { icon: "ri:whatsapp-fill", href: "https://wa.me/573173322149", label: "WhatsApp" },
               ].map((social) => (

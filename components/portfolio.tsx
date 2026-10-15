@@ -1,321 +1,152 @@
 "use client"
 import Image from "next/image"
-import { StatusBadge } from "@/components/ui/status-badge"
-import { Icon } from "@iconify/react"
-import { cn } from "@/lib/utils"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { motion } from "framer-motion"
 
-const allImages = [
-  "WhatsApp Image 2026-07-24 at 9.12.51 AM (1).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.51 AM.jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.52 AM (4).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.52 AM (5).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.52 AM (6).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.52 AM (7).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.52 AM.jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.53 AM (1).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.53 AM (2).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.53 AM (3).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.53 AM (4).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.53 AM (5).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.53 AM.jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.54 AM (1).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.54 AM (2).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.54 AM (4).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.55 AM (1).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.55 AM (2).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.55 AM (3).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.55 AM (4).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.55 AM (5).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.56 AM (1).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.56 AM (2).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.56 AM (3).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.56 AM (4).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.56 AM (5).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.56 AM (6).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.56 AM.jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.57 AM (1).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.57 AM (2).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.57 AM (3).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.57 AM (4).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.57 AM (5).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.57 AM.jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.58 AM (1).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.58 AM (2).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.58 AM (3).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.58 AM (4).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.58 AM (5).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.58 AM (6).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.58 AM.jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.59 AM (1).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.59 AM (2).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.59 AM (3).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.59 AM (4).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.59 AM (5).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.59 AM (6).jpeg",
-  "WhatsApp Image 2026-07-24 at 9.12.59 AM.jpeg"
+interface Project {
+  title: string
+  img: string
+  span?: "full" | "half"
+}
+
+/** 14 proyectos — cada par ocupa una fila de 2 columnas */
+const projects: Project[] = [
+  {
+    title: "Stand Corporativo — Feria Internacional",
+    img: "WhatsApp Image 2026-07-24 at 9.12.52 AM (4).jpeg",
+  },
+  {
+    title: "Escenografía — Evento de Marca",
+    img: "WhatsApp Image 2026-07-24 at 9.12.51 AM (1).jpeg",
+  },
+  {
+    title: "Arquitectura Efímera — Lanzamiento",
+    img: "WhatsApp Image 2026-07-24 at 9.12.56 AM (1).jpeg",
+  },
+  {
+    title: "Stand Industrial — Exposición Comercial",
+    img: "WhatsApp Image 2026-07-24 at 9.12.52 AM (6).jpeg",
+  },
+  {
+    title: "Espacio Inmersivo — Congreso",
+    img: "WhatsApp Image 2026-07-24 at 9.12.53 AM (1).jpeg",
+  },
+  {
+    title: "Montaje Premium — Salón Empresarial",
+    img: "WhatsApp Image 2026-07-24 at 9.12.58 AM (1).jpeg",
+  },
+  {
+    title: "Stand Tecnológico — Expo Tech",
+    img: "WhatsApp Image 2026-07-24 at 9.12.57 AM (1).jpeg",
+  },
+  {
+    title: "Escenografía Corporativa — Lanzamiento",
+    img: "WhatsApp Image 2026-07-24 at 9.12.55 AM (1).jpeg",
+  },
+  {
+    title: "Stand Salud — Feria Nacional",
+    img: "WhatsApp Image 2026-07-24 at 9.12.59 AM (3).jpeg",
+  },
+  {
+    title: "Arquitectura Comercial — Rueda de Negocios",
+    img: "WhatsApp Image 2026-07-24 at 9.12.53 AM (2).jpeg",
+  },
+  {
+    title: "Impresión Gran Formato — Señalización",
+    img: "WhatsApp Image 2026-07-24 at 9.12.54 AM (1).jpeg",
+  },
+  {
+    title: "Stand Automotriz — Salón del Automóvil",
+    img: "WhatsApp Image 2026-07-24 at 9.12.56 AM (2).jpeg",
+  },
+  {
+    title: "Espacio Gastronómico — Feria de Alimentos",
+    img: "WhatsApp Image 2026-07-24 at 9.12.58 AM (4).jpeg",
+  },
+  {
+    title: "Stand Doble Altura — Feria Internacional",
+    img: "WhatsApp Image 2026-07-24 at 9.12.59 AM (4).jpeg",
+  },
 ]
 
-const projects = [
-  {
-    id: 1,
-    title: "ARQUITECTURA EFÍMERA",
-    category: "Stands & Ferias",
-    size: "large",
-    images: [
-      "WhatsApp Image 2026-07-24 at 9.12.52 AM (4).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.52 AM (5).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.52 AM.jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.53 AM (3).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.53 AM (5).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.56 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.56 AM (2).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.56 AM (3).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.56 AM (4).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (3).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (4).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (5).jpeg",
-    ],
-    description: "Diseñamos y construimos estructuras efímeras de alto impacto para ferias, exposiciones y eventos comerciales. Cada espacio es concebido estratégicamente para maximizar la presencia de marca y generar conexiones reales con el público.",
-  },
-  {
-    id: 2,
-    title: "ESCENOGRAFÍAS",
-    category: "Montajes & Eventos",
-    size: "medium",
-    images: [
-      "WhatsApp Image 2026-07-24 at 9.12.51 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.51 AM.jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.54 AM (4).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.55 AM (2).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.56 AM (5).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.56 AM (6).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.56 AM.jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.58 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.58 AM (2).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.58 AM (3).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.58 AM (4).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.58 AM (5).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.58 AM (6).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.58 AM.jpeg",
-    ],
-    description: "Diseños orientados a la visibilidad y recordación de marca. Incorporamos elementos creativos, mobiliario personalizado y zonas de interacción para maximizar el engagement y la recolección de leads.",
-  },
-  {
-    id: 3,
-    title: "RENTA DE MOBILIARIO",
-    category: "Mobiliario & Exhibición",
-    size: "large",
-    images: [
-      "WhatsApp Image 2026-07-24 at 9.12.52 AM (6).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.52 AM (7).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.53 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.53 AM (2).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.53 AM.jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.55 AM (3).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.55 AM (4).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.55 AM (5).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.57 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.57 AM (2).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.57 AM (3).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.57 AM (4).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.57 AM (5).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.57 AM.jpeg",
-    ],
-    description: "Entornos elegantes y acogedores diseñados para proyectar confianza y exclusividad. Incluyen áreas privadas de negociación, maquetas destacadas y acabados premium que reflejan el nivel de tus proyectos.",
-  },
-  {
-    id: 4,
-    title: "IMPRESIÓN A GRAN FORMATO",
-    category: "Impresión & Señalización",
-    size: "medium",
-    images: [
-      "WhatsApp Image 2026-07-24 at 9.12.53 AM (4).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.54 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.54 AM (2).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.55 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (2).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (6).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM.jpeg",
-    ],
-    description: "Impresión de alta resolución en viniles, telas, lonas y materiales rígidos para fondos de stand, señalización, paneles y cualquier formato requerido en tu evento o espacio comercial.",
-  },
-  {
-    id: 5,
-    title: "ALQUILER DE EQUIPOS AUDIOVISUALES",
-    category: "Audiovisual & Tecnología",
-    size: "medium",
-    images: [
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (1).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (2).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM (6).jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.59 AM.jpeg",
-      "WhatsApp Image 2026-07-24 at 9.12.55 AM (1).jpeg",
-    ],
-    description: "Renta de pantallas LED, TVs y equipos audiovisuales para eventos, ferias y espacios comerciales. Contamos con tecnología de última generación para crear experiencias visuales y sonoras de alto impacto.",
-  },
-]
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07 } },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
+}
 
 export function Portfolio() {
   return (
-    <section id="portafolio" className="bg-zinc-900 pt-[1cm] pb-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
-          <StatusBadge className="mb-6" code="PRT-04">
-            Nuestro Portafolio de Servicios
-          </StatusBadge>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Portafolio de{" "}
-            <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
-              Stands y Eventos Comerciales
-            </span>
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-zinc-400">
-            Combinamos creatividad, tecnología y precisión para construir espacios que comunican, conectan e impulsan marcas.
-          </p>
-        </div>
+    <section id="proyectos" className="bg-black">
 
-        <article className="mb-16 grid gap-8 rounded-2xl bg-zinc-900 p-8 lg:grid-cols-3 shadow-[-6px_-6px_12px_rgba(255,255,255,0.03),6px_6px_12px_rgba(0,0,0,0.5)]">
-          <div className="lg:col-span-2">
-            <h3 className="mb-3 text-xl font-bold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
-              Diseño Estratégico que Maximiza el Impacto de tu Marca
-            </h3>
-            <p className="mb-4 leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
-              Cada stand que diseñamos es el resultado de un análisis profundo de los objetivos comerciales del cliente, el perfil del público objetivo y las características del evento. No creamos simples estructuras; construimos experiencias inmersivas que generan conexiones reales entre las marcas y sus clientes potenciales.
-            </p>
-            <p className="leading-relaxed text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),2px_2px_3px_rgba(0,0,0,0.8)]">
-              Nuestros proyectos van desde stands compactos para startups hasta instalaciones de gran formato para multinacionales. En todos los casos, la premisa es la misma: calidad de primer nivel, ejecución impecable y un diseño que te haga destacar por encima de la competencia.
+      {/* ── Hero header ── */}
+      <div className="border-b border-zinc-900 px-6 py-16 sm:px-10 lg:px-16 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:items-end">
+          <div>
+            <h1 className="text-5xl font-black uppercase leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
+              NUESTROS{" "}
+              <span className="text-white">
+                PROYECTOS
+              </span>
+            </h1>
+          </div>
+          <div className="lg:max-w-md lg:pb-1">
+            <p className="text-base leading-relaxed text-zinc-400">
+              Exploramos ideas, diseñamos experiencias y construimos espacios que
+              conectan marcas con personas. Cada proyecto refleja creatividad,
+              precisión y una ejecución pensada para generar impacto real.
             </p>
           </div>
-          <div className="flex flex-col justify-center gap-4">
-            {[
-              { icon: "solar:buildings-3-bold", label: "Ferias Industriales y Comerciales" },
-              { icon: "solar:presentation-graph-bold", label: "Eventos y Congresos Corporativos" },
-              { icon: "solar:tag-bold", label: "Lanzamientos de Producto" },
-              { icon: "solar:health-bold", label: "Sectores: Salud, Auto, Tecnología" },
-            ].map((item) => (
-              <div key={item.label} className="flex items-center gap-3 text-sm text-zinc-300 [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">
-                <Icon icon={item.icon} className="h-5 w-5 flex-shrink-0 text-red-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" />
-                {item.label}
-              </div>
-            ))}
-          </div>
-        </article>
-
-        <div className="flex flex-col gap-24 lg:gap-32">
-          {projects.map((project, index) => {
-            const isEven = index % 2 === 0
-            const tiltY = isEven ? -4 : 4
-
-            return (
-              <div
-                key={project.id}
-                className={`flex flex-col gap-8 md:gap-12 lg:items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
-              >
-                <div className="w-full lg:w-1/2">
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {project.images.map((img, i) => (
-                        <CarouselItem key={i}>
-                          <div
-                            className="group relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-2xl md:aspect-video"
-                            style={{
-                              transform: `rotateX(4deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`,
-                              transformStyle: 'preserve-3d',
-                              boxShadow: '0 30px 60px rgba(255,255,255,0.15), 0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.2)',
-                              transition: 'transform 0.5s cubic-bezier(0.23,1,0.32,1)',
-                            }}
-                            onMouseEnter={e => {
-                              const el = e.currentTarget as HTMLDivElement
-                              el.style.transform = `rotateX(0deg) rotateY(0deg) translateY(-12px) scale(1.04)`
-                            }}
-                            onMouseLeave={e => {
-                              const el = e.currentTarget as HTMLDivElement
-                              el.style.transform = `rotateX(4deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`
-                            }}
-                          >
-                            <Image
-                              src={`/proyectos-primer-nivel/${img}`}
-                              alt={`${project.title} — Imagen ${i + 1}`}
-                              fill
-                              className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-
-                            <div className="absolute inset-0 bg-black/5" />
-
-                            <div
-                              className="pointer-events-none absolute inset-0"
-                              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%)' }}
-                            />
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    
-                    <CarouselPrevious className="left-4 bg-zinc-900/80 hover:bg-red-600 border-none text-white hover:text-white" />
-                    <CarouselNext className="right-4 bg-zinc-900/80 hover:bg-red-600 border-none text-white hover:text-white" />
-                  </Carousel>
-                </div>
-
-                <div className="flex w-full flex-col justify-center lg:w-1/2 lg:px-8">
-                  <span className="mb-4 inline-block text-sm font-bold uppercase tracking-[0.2em] text-red-600">
-                    {project.category}
-                  </span>
-                  <h3 className="mb-6 text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
-                    {project.title}
-                  </h3>
-                  <p className="mb-8 text-lg leading-relaxed text-zinc-400">
-                    {project.description}
-                  </p>
-
-                  <ul className="mb-10 space-y-4 border-l-2 border-zinc-800 pl-6">
-                    <li className="flex items-center gap-3 text-zinc-300">
-                      <Icon icon="solar:ruler-pen-bold" className="h-5 w-5 text-red-600" />
-                      Diseño a medida según identidad corporativa
-                    </li>
-                    <li className="flex items-center gap-3 text-zinc-300">
-                      <Icon icon="solar:layers-minimalistic-bold" className="h-5 w-5 text-red-600" />
-                      Materiales premium y acabados impecables
-                    </li>
-                    <li className="flex items-center gap-3 text-zinc-300">
-                      <Icon icon="solar:check-circle-bold" className="h-5 w-5 text-red-600" />
-                      Fabricación y montaje llave en mano
-                    </li>
-                  </ul>
-
-                  <div>
-                    <button className="group relative inline-flex items-center gap-2 border border-zinc-800 bg-zinc-900 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-red-600/50 hover:bg-zinc-800">
-                      Cotizar Proyecto Similar
-                      <Icon
-                        icon="solar:arrow-right-bold"
-                        className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-
-        <div className="mt-12 text-center">
-          <button className="inline-flex items-center gap-2 border-2 border-red-600 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-600 hover:shadow-lg hover:shadow-red-600/25">
-            Ver Más Proyectos
-            <Icon
-              icon="solar:alt-arrow-right-bold"
-              className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </button>
         </div>
       </div>
+
+      {/* ── Grid ── */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.05 }}
+        className="grid grid-cols-1 sm:grid-cols-2"
+      >
+        {projects.map((project, i) => (
+          <motion.article
+            key={i}
+            variants={item}
+            className="group relative aspect-[4/3] cursor-pointer overflow-hidden"
+          >
+            {/* Photo */}
+            <Image
+              src={`/proyectos-primer-nivel/${project.img}`}
+              alt={`${project.title} — PRIMER NIVEL`}
+              fill
+              sizes="(max-width: 640px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+
+            {/* Persistent bottom gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+            {/* Title */}
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+              <h2 className="text-sm font-black uppercase tracking-[0.15em] text-white drop-shadow-lg sm:text-base">
+                {project.title}
+              </h2>
+              {/* Red underline on hover */}
+              <div className="mt-1.5 h-[2px] w-0 bg-red-600 transition-all duration-500 group-hover:w-16" />
+            </div>
+
+            {/* Hover red overlay tint */}
+            <div className="absolute inset-0 bg-red-900/0 transition-colors duration-500 group-hover:bg-red-900/10" />
+
+            {/* Border on hover */}
+            <div className="absolute inset-0 ring-0 ring-inset ring-red-600/0 transition-all duration-500 group-hover:ring-1 group-hover:ring-red-600/40" />
+          </motion.article>
+        ))}
+      </motion.div>
+
     </section>
   )
 }
-

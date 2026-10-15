@@ -20,13 +20,13 @@ const serviciosDropdown = [
   {
     href: "/servicios#diseno",
     label: "Diseño y Conceptualización",
-    description: "Stands, arquitectura comercial y renders 3D",
+    description: "Arquitectura efímera, stands y renders 3D",
     icon: "solar:pen-new-square-bold",
   },
   {
     href: "/servicios#produccion",
     label: "Producción y Montaje",
-    description: "Fabricación, montaje e instalación integral",
+    description: "Escenografías, fabricación y montaje integral",
     icon: "solar:settings-bold",
   },
   {
@@ -318,8 +318,8 @@ export function Header() {
             className="flex items-center gap-4 border-l border-r px-6"
           >
             {[
-              { icon: "solar:facebook-bold", href: "#" },
-              { icon: "solar:instagram-bold", href: "#" },
+              { icon: "solar:facebook-bold", href: "https://www.facebook.com/primerniveldiseno", label: "Facebook" },
+              { icon: "solar:instagram-bold", href: "https://www.instagram.com/primerniveldiseno", label: "Instagram" },
             ].map((social, i) => (
               <motion.div
                 key={i}
@@ -328,6 +328,9 @@ export function Header() {
               >
                 <Link
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
                   className="group transition-colors duration-300"
                 >
                   <motion.span
