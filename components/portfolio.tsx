@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { StatusBadge } from "@/components/ui/status-badge"
 
 interface Project {
   title: string
@@ -80,36 +81,39 @@ const item = {
 
 export function Portfolio() {
   return (
-    <section id="proyectos" className="bg-black">
+    <section id="proyectos" className="bg-zinc-950">
 
-      {/* ── Hero header ── */}
-      <div className="border-b border-zinc-900 px-6 py-16 sm:px-10 lg:px-16 lg:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:items-end">
-          <div>
-            <h1 className="text-5xl font-black uppercase leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
+      {/* ── Header — mismo estilo que el resto de la página ── */}
+      <div className="border-b border-zinc-900 px-6 py-10 sm:px-10 lg:px-16 lg:py-10">
+        <div className="mx-auto max-w-7xl">
+
+          {/* Badge */}
+          <StatusBadge className="mb-6" code="PRY-05">
+            PORTAFOLIO DE PROYECTOS
+          </StatusBadge>
+
+          <div className="flex flex-col gap-4">
+            <h2 className="text-xl font-bold uppercase leading-none tracking-tight text-white sm:text-2xl lg:text-3xl">
               NUESTROS{" "}
-              <span className="text-white">
+              <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
                 PROYECTOS
               </span>
-            </h1>
-          </div>
-          <div className="lg:max-w-md lg:pb-1">
-            <p className="text-base leading-relaxed text-zinc-400">
-              Exploramos ideas, diseñamos experiencias y construimos espacios que
-              conectan marcas con personas. Cada proyecto refleja creatividad,
-              precisión y una ejecución pensada para generar impacto real.
+            </h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+              Exploramos ideas, diseñamos experiencias y construimos espacios que conectan marcas con personas. Cada proyecto refleja creatividad, precisión y una ejecución pensada para generar impacto real.
             </p>
           </div>
         </div>
       </div>
 
-      {/* ── Grid ── */}
+      {/* ── Grid con gap ── */}
+      <div className="bg-zinc-950 px-4 py-8 sm:px-6 lg:px-8">
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.05 }}
-        className="grid grid-cols-1 sm:grid-cols-2"
+        className="mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-5"
       >
         {projects.map((project, i) => (
           <motion.article
@@ -146,6 +150,7 @@ export function Portfolio() {
           </motion.article>
         ))}
       </motion.div>
+      </div>
 
     </section>
   )

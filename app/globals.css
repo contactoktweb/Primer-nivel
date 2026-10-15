@@ -1,6 +1,28 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/*
+  ==========================================================================
+  FUENTE CORPORATIVA: Eurostile Extended Bold
+  ────────────────────────────────────────────────────────────────────────────
+  PENDIENTE: El cliente debe entregar los archivos de la fuente.
+  Cuando los tengas, copia los archivos .woff2 (y .woff como fallback)
+  a la carpeta /public/fonts/ y descomenta el @font-face de abajo.
+  ==========================================================================
+*/
+
+/*
+@font-face {
+  font-family: 'Eurostile Extended';
+  src:
+    url('/fonts/eurostile-extended-bold.woff2') format('woff2'),
+    url('/fonts/eurostile-extended-bold.woff')  format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -34,7 +56,12 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  /*
+    Fuente principal: Inter (fallback mientras el cliente entrega Eurostile).
+    Cuando se descomente el @font-face arriba, cambiar a:
+    --font-sans: 'Eurostile Extended', 'Inter', sans-serif;
+  */
+  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
