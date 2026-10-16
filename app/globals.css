@@ -50,7 +50,22 @@
 
 @theme inline {
   /* Fuente corporativa principal: Eurostile Extended Bold */
-  --font-sans: 'Eurostile Extended', var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-sans: 'Eurostile Extended', 'Inter', system-ui, sans-serif;
+
+  /* Escala tipográfica al 85% — SOLO font-size, layout y spacing intactos */
+  --text-xs:   0.64rem;
+  --text-sm:   0.74rem;
+  --text-base: 0.85rem;
+  --text-lg:   0.96rem;
+  --text-xl:   1.06rem;
+  --text-2xl:  1.275rem;
+  --text-3xl:  1.59rem;
+  --text-4xl:  1.91rem;
+  --text-5xl:  2.55rem;
+  --text-6xl:  3.19rem;
+  --text-7xl:  3.83rem;
+  --text-8xl:  5.1rem;
+  --text-9xl:  6.8rem;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -96,6 +111,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Garantía directa: fuerza Eurostile en todo el sitio */
+    font-family: 'Eurostile Extended', 'Inter', system-ui, sans-serif;
   }
 }
 

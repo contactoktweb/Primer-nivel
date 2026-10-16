@@ -116,7 +116,7 @@ export function About() {
                   className="rounded-2xl bg-zinc-900 p-5 shadow-[-4px_-4px_8px_rgba(255,255,255,0.03),4px_4px_8px_rgba(0,0,0,0.5)] transition-all duration-300 hover:shadow-[inset_-4px_-4px_8px_rgba(255,255,255,0.03),inset_4px_4px_8px_rgba(0,0,0,0.5)]"
                 >
                   <Icon icon={value.icon} className="mb-3 h-8 w-8 text-red-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" />
-                  <h3 className="mb-2 font-semibold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">{value.title}</h3>
+                  <h3 className="mb-2 text-xs leading-tight font-semibold text-white [text-shadow:-1px_-1px_1px_rgba(255,255,255,0.05),1px_1px_2px_rgba(0,0,0,0.8)]">{value.title}</h3>
                   <p className="text-sm text-zinc-400">{value.description}</p>
                 </div>
               ))}
@@ -165,7 +165,7 @@ export function About() {
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-red-600/10 shadow-[inset_0_0_10px_rgba(220,38,38,0.1)]">
                     <Icon icon={item.icon} className="h-6 w-6 text-red-600" />
                   </div>
-                  <h3 className="mb-2 font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">{item.title}</h3>
+                  <h3 className="mb-2 text-xs leading-tight font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">{item.title}</h3>
                   <p className="text-sm leading-relaxed text-zinc-500">{item.description}</p>
                 </div>
               </div>
